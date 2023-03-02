@@ -4,7 +4,10 @@
       <div class="bg-blue-600 text-white p-3 mb-2 rounded-l-lg rounded-br-lg">
         <p class="text-sm"><%= message.body %></p>
       </div>
-      <p><%= likes(message, user) %></p>
+      <%= link_to like_message_path(message), data: { 'turbo-method': :post } do%>
+        <%= render partial: "messages/heart", locals: {user: user, message: message} %>
+        <%= render partial: "messages/likes_count", locals: {message: message} %>
+      <% end %>
       <span class="text-xs text-gray-500 leading-none"><%= l(message.created_at, format: :short) %></span>
     </div>
     <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300">
@@ -18,7 +21,10 @@
       <div class="bg-gray-300 p-3 mb-2 rounded-r-lg rounded-bl-lg">
         <p class="text-sm max-w-[340px]"><%= message.body %></p>
       </div>
-      <p><%= likes(message, user) %></p>
+      <%= link_to like_message_path(message), data: { 'turbo-method': :post } do%>
+        <%= render partial: "messages/heart", locals: {user: user, message: message} %>
+        <%= render partial: "messages/likes_count", locals: {message: message} %>
+      <% end %>
       <span class="text-xs text-gray-500 leading-none"><%= l(message.created_at, format: :short) %></span>
     </div>
   </div>
