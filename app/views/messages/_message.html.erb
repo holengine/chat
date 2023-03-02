@@ -1,10 +1,10 @@
-<% if message.user == current_user %>
+<% if message.user == user %>
   <div class="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end">
     <div>
       <div class="bg-blue-600 text-white p-3 mb-2 rounded-l-lg rounded-br-lg">
         <p class="text-sm"><%= message.body %></p>
-        <p class="absolute items-center text-sm bg-indigo-500 px-2 py-0.5 rounded-full"><%= likes(message) %></p>
       </div>
+      <p><%= likes(message, user) %></p>
       <span class="text-xs text-gray-500 leading-none"><%= l(message.created_at, format: :short) %></span>
     </div>
     <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300">
@@ -15,10 +15,10 @@
   <div class="flex w-full mt-2 space-x-3 max-w-xs">
     <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
     <div>
-      <div class="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg">
+      <div class="bg-gray-300 p-3 mb-2 rounded-r-lg rounded-bl-lg">
         <p class="text-sm max-w-[340px]"><%= message.body %></p>
-        <p class="float-right text-sm text-white bg-indigo-500 px-2 py-0.5 rounded-full"><%= likes(message) %></p>
       </div>
+      <p><%= likes(message, user) %></p>
       <span class="text-xs text-gray-500 leading-none"><%= l(message.created_at, format: :short) %></span>
     </div>
   </div>

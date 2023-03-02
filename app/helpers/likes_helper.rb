@@ -1,7 +1,7 @@
 module LikesHelper
-  def likes(message)
+  def likes(message, user)
     likes = "#{message.likes_count}" if message.likes_count.positive?
-    heart = message.likes.find_by(user: current_user).present? ? ' ❤️ ' : ' 🤍 '
+    heart = message.likes.find_by(user: user).present? ? ' ❤️ ' : ' 🤍 '
 
     "#{likes} #{heart}"
   end
