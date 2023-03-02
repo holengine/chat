@@ -1,0 +1,10 @@
+<button class="w-full text-left py-2 focus:outline-none focus-visible:bg-indigo-50">
+  <div class="flex items-center">
+    <img class="rounded-full items-start flex-shrink-0 mr-3" src="https://static.thenounproject.com/png/139337-200.png"
+         width="32" height="32" alt="Marie Zulfikar" />
+    <div>
+      <%= link_to room.title, room_path(room.title), class: "text-sm font-semibold text-blue-900" %>
+      <div class="text-[13px]"><%= l(room.created_at, format: :short) %></div>
+    </div>
+  </div>
+</button>
