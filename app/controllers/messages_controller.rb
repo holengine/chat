@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_user!, only: %i[create like]
+
   def create
     @new_message = current_user&.messages&.build(strong_params)
 

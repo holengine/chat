@@ -4,6 +4,28 @@
   <div class="h-full">
     <div class="relative max-w-[340px] mx-auto bg-white shadow-lg rounded-lg">
       <div class="py-3 px-5">
+        <h3 class="text-xs font-semibold uppercase text-gray-400 mb-1">Users</h3>
+        <h3 class="text-xs font-semibold uppercase text-black mb-1">Online</h3>
+        <div class="divide-y divide-gray-200">
+          <%= turbo_frame_tag "online-users" do %>
+            <%= render partial: 'users/user', collection: @online_users %>
+          <% end %>
+        </div>
+        <h3 class="text-xs font-semibold uppercase text-black mb-1">Offline</h3>
+        <div class="divide-y divide-gray-200">
+          <%= turbo_frame_tag "online-users" do %>
+            <%= render partial: 'users/user', collection: @offline_users %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flex flex-col justify-center antialiased text-gray-600  p-4">
+  <div class="h-full">
+    <div class="relative max-w-[340px] mx-auto bg-white shadow-lg rounded-lg">
+      <div class="py-3 px-5">
         <h3 class="text-xs font-semibold uppercase text-gray-400 mb-1">Rooms</h3>
         <div class="divide-y divide-gray-200">
           <%= turbo_frame_tag :rooms do %>

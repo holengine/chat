@@ -1,0 +1,16 @@
+<div class="w-full text-left py-2 focus:outline-none focus-visible:bg-indigo-50" id="<%= dom_id(user) %>_row">
+  <div class="flex items-center">
+    <img class="rounded-full items-start flex-shrink-0 mr-3" src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png"
+         width="32" height="32" alt="user" />
+    <div>
+      <% if user.online? %>
+        <div class="text-[13px]"><%= user.email %> 🟢</div>
+      <% elsif user.last_online_at.present? %>
+        <div class="text-[13px]"><%= user.email %> ⚪</div>
+        <div class="text-[13px]">Last seen: <%= time_ago_in_words(user.last_online_at) %> ago</div>
+      <% else %>
+        <div class="text-[13px]"><%= user.email %> ⚪</div>
+      <% end %>
+    </div>
+  </div>
+</div>

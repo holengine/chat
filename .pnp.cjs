@@ -30,6 +30,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@hotwired/stimulus", "npm:3.2.1"],\
             ["@hotwired/turbo-rails", "npm:7.2.5"],\
+            ["@rails/actioncable", "npm:7.0.4"],\
             ["autoprefixer", "virtual:0460f86c7587ee75dac643681550c044e8047ba46e219a5baac054fc0fea2d0af97a9bd3fe4b22de0884797215e0a1a4368bb60f9ef7087a69c4008789f4e032#npm:10.4.13"],\
             ["esbuild", "npm:0.17.10"],\
             ["postcss", "npm:8.4.21"],\
@@ -444,6 +445,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["app", "workspace:."],\
             ["@hotwired/stimulus", "npm:3.2.1"],\
             ["@hotwired/turbo-rails", "npm:7.2.5"],\
+            ["@rails/actioncable", "npm:7.0.4"],\
             ["autoprefixer", "virtual:0460f86c7587ee75dac643681550c044e8047ba46e219a5baac054fc0fea2d0af97a9bd3fe4b22de0884797215e0a1a4368bb60f9ef7087a69c4008789f4e032#npm:10.4.13"],\
             ["esbuild", "npm:0.17.10"],\
             ["postcss", "npm:8.4.21"],\

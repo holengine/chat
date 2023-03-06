@@ -1,7 +1,7 @@
 <%= turbo_stream_from @room %>
 <%= turbo_stream_from [current_user, @room] %>
 
-<div class="flex flex-col items-center h-full min-h-screen justify-center text-gray-800">
+<div class="flex flex-col items-center h-96 justify-center text-gray-800 px-5">
   <h1 class="text-3xl font-bold tracking-tight text-gray-900 mb-3"><%= @room.title %></h1>
   <div class="flex flex-col flex-grow w-full max-w-xl bg-gray-50 shadow-xl rounded-lg overflow-hidden">
     <div class="flex flex-col flex-grow h-0 p-4 overflow-auto" id="chat-container">
@@ -10,12 +10,14 @@
       </div>
     </div>
 
-    <div class="bg-gray-300 p-4">
-      <%= form_with model: @new_message, data: { controller: "chat_refresh", action: "turbo:submit-end->chat_refresh#clearInput"} do |f| %>
-        <%= f.text_field :body, autofocus: true, required: true, class: "flex items-center h-10 w-full rounded px-3 text-sm",
-                         placeholder: "Type your message…" %>
-        <%= f.hidden_field :room_id, value: @room.id %>
-      <% end %>
-    </div>
+    <% if user_signed_in? %>
+      <div class="bg-gray-300 p-4">
+        <%= form_with model: @new_message, data: { controller: "chat_refresh", action: "turbo:submit-end->chat_refresh#clearInput"} do |f| %>
+          <%= f.text_field :body, autofocus: true, required: true, class: "flex items-center h-10 w-full rounded px-3 text-sm",
+                           placeholder: "Type your message…" %>
+          <%= f.hidden_field :room_id, value: @room.id %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

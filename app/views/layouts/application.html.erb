@@ -3,6 +3,8 @@
   <head>
     <title>Turbochat</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-visit-control" content="reload">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -69,6 +71,7 @@
     </nav>
     <main>
       <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+        <%= turbo_stream_from "online_users", channel: OnlineChannel %>
         <%= yield %>
       </div>
     </main>

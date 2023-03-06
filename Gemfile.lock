@@ -69,6 +69,7 @@ GEM
     bcrypt (3.1.18)
     builder (3.2.4)
     concurrent-ruby (1.2.2)
+    connection_pool (2.3.0)
     crass (1.0.6)
     cssbundling-rails (1.1.2)
       railties (>= 6.0.0)
@@ -185,6 +186,7 @@ PLATFORMS
   x86_64-darwin-22
 
 DEPENDENCIES
+  connection_pool
   cssbundling-rails
   debug
   devise (~> 4.9)

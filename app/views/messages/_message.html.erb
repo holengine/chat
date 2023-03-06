@@ -1,31 +1,16 @@
-<% if message.user == user %>
-  <div class="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end">
-    <div>
-      <div class="bg-blue-600 text-white p-3 mb-2 rounded-l-lg rounded-br-lg">
-        <p class="text-sm"><%= message.body %></p>
-      </div>
-      <%= link_to like_message_path(message), data: { 'turbo-method': :post } do%>
-        <%= render partial: "messages/heart", locals: {user: user, message: message} %>
-        <%= render partial: "messages/likes_count", locals: {message: message} %>
-      <% end %>
-      <span class="text-xs text-gray-500 leading-none"><%= l(message.created_at, format: :short) %></span>
-    </div>
-    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300">
-      <span class="text-xs text-gray-500 leading-none"><%= message.user.email %></span>
-    </div>
+<div class="flex w-full mt-2 space-x-3 max-w-xs">
+  <div class="flex flex-col justify-center items-center border-4 border-dotted rounded-md">
+    <img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png" class="flex-shrink-0 h-10 w-10 mb-2 rounded-full bg-gray-300">
+    <span class="text-xs text-gray-500 leading-none mx-2"><%= message.user.email %></span>
   </div>
-<% else %>
-  <div class="flex w-full mt-2 space-x-3 max-w-xs">
-    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
-    <div>
-      <div class="bg-gray-300 p-3 mb-2 rounded-r-lg rounded-bl-lg">
-        <p class="text-sm max-w-[340px]"><%= message.body %></p>
-      </div>
-      <%= link_to like_message_path(message), data: { 'turbo-method': :post } do%>
-        <%= render partial: "messages/heart", locals: {user: user, message: message} %>
-        <%= render partial: "messages/likes_count", locals: {message: message} %>
-      <% end %>
-      <span class="text-xs text-gray-500 leading-none"><%= l(message.created_at, format: :short) %></span>
+  <div>
+    <div class="bg-gray-300 p-3 mb-2 flex-initial max-w-xs rounded-r-lg rounded-bl-lg ">
+      <p class="text-sm break-words flex-initial "><%= message.body %></p>
     </div>
+    <%= link_to like_message_path(message), data: { 'turbo-method': :post } do%>
+      <%= render partial: "messages/heart", locals: {user: user, message: message} %>
+      <%= render partial: "messages/likes_count", locals: {message: message} %>
+    <% end %>
+    <span class="text-xs text-gray-500 leading-none"><%= l(message.created_at, format: :short) %></span>
   </div>
-<% end %>
+</div>

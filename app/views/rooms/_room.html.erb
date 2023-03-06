@@ -1,9 +1,13 @@
-<button class="w-full text-left py-2 focus:outline-none focus-visible:bg-indigo-50">
+<button class="w-full text-left py-2 focus:outline-none focus-visible:bg-indigo-50" id="room_<%= room.title %>">
   <div class="flex items-center">
     <img class="rounded-full items-start flex-shrink-0 mr-3" src="https://static.thenounproject.com/png/139337-200.png"
-         width="32" height="32" alt="Marie Zulfikar" />
+         width="32" height="32" alt="room" />
     <div>
       <%= link_to room.title, room_path(room.title), class: "text-sm font-semibold text-blue-900" %>
+      <% if room.user == current_user %>
+        <%= link_to("🗑️", room_path(title: room.title),
+                    data: { 'turbo-confirm': "Delete this room?", turbo_method: :delete }, class: "float-right") %>
+      <% end %>
       <div class="text-[13px]"><%= l(room.created_at, format: :short) %></div>
     </div>
   </div>
